@@ -75,14 +75,14 @@ buyer 테이블에서 buyer_id, buyer_name 두 컬럼을 조회하는 쿼리를 
 SELECT buyer_id 바이어아이디, buyer_name 이름 -- 한글로 잘 하지않는데 그냥 가능하다는 것을 보여주기위해 한거임
 FROM buyer;
 
-literal : 값 자체
+literal(리터럴) : 값 자체
 literal 표기법 : 값을 표현하는 방법
 
 java 정수 값을 어떻게 표현할까 (10) ?
-int a = 10;
+int a = 10; --숫자를 표기해라
 float f = 10f;
 long l = 10L;
-String s = "Hello World";
+String s = "Hello World"; --문자를 표기해라
 
 * | {컬럼 | 표현식 [AS] [ALIAS], ...}
 SELECT empno, 10, 'Hello World'
@@ -136,7 +136,7 @@ FROM user_tables;
 
 
 조건에 맞는 데이터 조회하기
-WHERE절 조건연산자
+WHERE절 조건연산자 --중요함
 = 같은값
 !=, <> 다른값
 > 클때
