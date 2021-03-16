@@ -272,7 +272,7 @@ WHERE mgr IN (7698, 7839, NULL);
 
 SELECT *
 FROM emp
-WHERE mgr NOT IN (7698, 7839, NULL); -- 데이터가 안나옴 7698이 아니면서, 7839가 아니면서 NULL이 아니여야한다.
+WHERE mgr NOT IN (7698, 7839, NULL); -- 데이터가 안나옴 7698이 아니면서, 7839가 아니면서 NULL이 아니여야한다. *********시험
 
 !(mgr = 7698 OR mgr = 7839 OR mgr = NULL)
 ==> mgr != 7698 AND mgr != 7839 AND mgr != NULL)
@@ -328,7 +328,10 @@ emp 테이블에서 job이 SALESMAN 이거나 사원번호가 78로 시작하는
 (단, LIKE 연산자 사용금지)
 SELECT *
 FROM emp
-WHERE job = 'SALESMAN' OR empno = '7839' OR empno = '7844' OR empno = '7876';
+WHERE job = 'SALESMAN' 
+OR empno BETWEEN 7800 AND 7899 
+OR empno BETWEEN 780 AND 789 
+OR empno BETWEEN 78 AND 78;
 
 
 
