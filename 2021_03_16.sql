@@ -106,13 +106,13 @@ FROM emp
 WHERE deptno IN (10, 30) AND sal > 1500
 ORDER BY ename DESC;
 -----------------------------------------------------------------------------------------------
-페이징 처리 : 전체 데이터를 조회하는게 아니라 페이지 사이즈가 정해졌을 때 원하는 페이지의 데이터만 가져오는 방법
+[페이징 처리] : 전체 데이터를 조회하는게 아니라 페이지 사이즈가 정해졌을 때 원하는 페이지의 데이터만 가져오는 방법
 (1. 400건을 다 조회하고 필요한 20것만 사용하는 방법 --> 전체조회(400)
  2. 400건의 데이터중 원하는 페이지의 20건만 조회 --> 페이징 처리(20))
 페이징 처리(게시글) ==> 정렬의 기준이 뭔데? (일반적으로는 게시글의 작성일시 역순)
 페이징 처리시 고려할 변수 : 페이지 번호, 페이지 사이즈 
 
-ROWNUM : 행번호를 부여하는 특수 키워드(오라클에서만 제공)
+ROWNUM : 행번호를 부여하는 특수 키워드(오라클에서만 제공) --**************
     * 제약사항
       ROWNUM은 WHERE 절에서도 사용 가능하다.
        단, ROWNUM의 사용을 1부터 사용하는 경우에만 사용 가능
@@ -129,7 +129,7 @@ ROWNUM : 행번호를 부여하는 특수 키워드(오라클에서만 제공)
 2번째 페이지 : 6 ~ 10 // WHERE ROWNUM BETWEEN 6 AND 10
 3번째 페이지 : 11~ 15(14)
 
-인라인 뷰
+[인라인 뷰]--********
 ALIAS 사용해야 함
 
 SELECT ROWNUM, empno, ename
@@ -146,8 +146,8 @@ ORDER BY ename;
 
 SQL 절은 다음의 순서로 실행된다.
 FROM => WHERE => SELECT => ORDER BY
-ORDER BY와 ROWNUM을 동시에 사용하면 정렬된 기준으로 ROWNUM이 부여되지 않는다.
-(SELECT 절이 먼저 실행되므로 ROWNUM이 부여된 상태에서 ORDER BY 절에 의해 정렬이)
+ORDER BY 와 ROWNUM 을 동시에 사용하면 정렬된 기준으로 ROWNUM 이 부여되지 않는다.
+(SELECT 절이 먼저 실행되므로 ROWNUM 이 부여된 상태에서 ORDER BY 절에 의해 정렬이)
 
 SELECT ROWNUM, empno, ename
 FROM emp
@@ -191,10 +191,10 @@ FROM(SELECT ROWNUM rn, empno, ename
      FROM(SELECT empno, ename
           FROM emp 
           ORDER BY ename))
-WHERE rn BETWEEN (:page-1)*:pageSize + 1 AND :page*:pageSize; 
+WHERE rn BETWEEN (:page-1)*:pageSize + 1 AND :page*:pageSize; -- ***********
 
 실습 가상컬럼 ROWNUM 실습 row 1
-emp 테이블에서 ROWNUM 값이 1~10인 값만 조회ㅏ는 쿼리를 작성해보세요.
+emp 테이블에서 ROWNUM 값이 1~10인 값만 조회하는 쿼리를 작성해보세요.
 (단, 정렬없이 진행하세요. 결과는 화면과 다를 수 있습니다.)
 
 SELECT ROWNUM rn, empno, ename
