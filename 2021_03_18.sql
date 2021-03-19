@@ -337,9 +337,9 @@ HAVING COUNT(*) >= 4; -- COUNT가 4건 이상인것만 -- GROUP BY 다음으로 
 
 GROUP FUNCTION
 - 그룹 함수에서 null컬럼은 계산에서 제외된다.
-- group by 절에 작성된 컬럼 이외의 컬럼이 select 절에 올 수 없다.
-- where 절에 그룹 함수를 조건으로 사용 할 수 없다.
-   heving 절 사용
+- GROUP BY 절에 작성된 컬럼 이외의 컬럼이 select 절에 올 수 없다.
+- WHERE 절에 그룹 함수를 조건으로 사용 할 수 없다.
+   HEVING 절 사용
     where sum(sal) > 3000(X)
     heving sum(sal) > 3000(O)
 
