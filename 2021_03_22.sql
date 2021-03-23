@@ -79,6 +79,7 @@ erd 다이어그램을 참고하여 customer, cycle, product 테이블을 조인
 애음요일, 개수, 제품명을 다음과 같은 결과가 나오도록 쿼리를 작성해보세요.
 (고객명이 brown, sally인 고객만 조회)
 (*정렬과 관계없이 값이 맞으면 정답)
+
 SELECT *
 FROM product;
 
@@ -142,7 +143,7 @@ SELECT e.ename, m.ename
 FROM emp e LEFT OUTER JOIN emp m ON(e.mgr = m.empno); --NULL값 포함 14개의 결과값이 나옴
 
 -- ORACLE SQL OUTER JOIN 표기 : (+)
--- OUTER 조인으로 인해 데이터가 아나오는 쪽 컬럼에 (+)를 붙여준다.
+-- OUTER 조인으로 인해 데이터가 안 나오는 쪽 컬럼에 (+)를 붙여준다.
 SELECT e.ename, m.ename 
 FROM emp e,emp m 
 WHERE e.mgr = m.empno(+); 
